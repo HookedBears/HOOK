@@ -1,0 +1,96 @@
+name: 🐞 Dashboard or contract bug
+description: Something on hookedbears.xyz or in the contracts isn't working as documented.
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Before you submit
+
+        - **Security vulnerability?** Stop and use the [private reporting flow](https://github.com/hookedbears/docs/security/advisories/new) instead — do NOT post details publicly.
+        - **Wallet won't connect or "Cannot redefine property: ethereum"?** Check [troubleshooting.md](../../faq/troubleshooting.md) first — these are almost always extension conflicts, not bugs.
+        - **Transaction reverted?** The [Troubleshooting → Transaction reverted](../../faq/troubleshooting.md#transaction-reverted) section explains the common revert reasons.
+
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Where did you hit the bug?
+      options:
+        - Dashboard (hookedbears.xyz)
+        - Smart contract behavior
+        - Both / unclear
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+      description: Reference the doc that describes the expected behavior, if applicable.
+      placeholder: |
+        According to mechanics/roar.md, calling roar() on a Lv1 bear should return rarity × 1.005 in $HOOK.
+        I expected to receive ~5.025 $HOOK for a rarity-5 bear at Lv1.
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+      description: Include any error messages exactly as shown.
+      placeholder: |
+        Transaction succeeded but I only received 4.5 $HOOK.
+        OR: Transaction reverted with "MergeLevelTooLow" but my bear shows level 1 on the dashboard.
+    validations:
+      required: true
+
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: List the steps someone else could follow to see the same behavior.
+      placeholder: |
+        1. Connect wallet (Rabby on Ethereum Mainnet)
+        2. Navigate to ROAR
+        3. Select bear #1234
+        4. Click "Roar"
+        5. Confirm transaction
+    validations:
+      required: true
+
+  - type: input
+    id: tx
+    attributes:
+      label: Transaction hash (if applicable)
+      description: The Etherscan tx hash for the failed/unexpected transaction.
+      placeholder: "0x..."
+
+  - type: input
+    id: address
+    attributes:
+      label: Your wallet address (optional)
+      description: Sharing your address can help us check on-chain state, but it's never required. Never share a seed phrase or private key.
+      placeholder: "0x..."
+
+  - type: textarea
+    id: env
+    attributes:
+      label: Environment
+      description: Browser, OS, wallet, mobile vs desktop.
+      placeholder: |
+        Browser: Chrome 130 on macOS 14
+        Wallet: Rabby 0.93.x
+        Network: Ethereum Mainnet (chain ID 1)
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I have NOT shared my seed phrase or private key in this report
+          required: true
+        - label: I confirm this is NOT a security vulnerability (which would go via the private security advisory flow)
+          required: true
+        - label: I've searched existing issues and this isn't a duplicate
+          required: true

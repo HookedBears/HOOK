@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🐦 Ask a quick question on X
+    url: https://x.com/hookedbears
+    about: For quick questions or general discussion, reply or DM @hookedbears on Twitter/X. (Real support never DMs you first — be wary.)
+  - name: 🔒 Report a security vulnerability
+    url: https://github.com/hookedbears/docs/security/advisories/new
+    about: For security issues in the contracts, dashboard, or docs — DO NOT open a public issue. Use the private vulnerability reporting flow.
+  - name: 📖 Read the FAQ
+    url: https://github.com/hookedbears/docs/blob/main/faq/index.md
+    about: Many questions are already answered in the FAQ and troubleshooting guide.

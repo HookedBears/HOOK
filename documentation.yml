@@ -1,0 +1,65 @@
+name: 📖 Documentation issue
+description: Something in the docs is wrong, unclear, missing, or outdated.
+title: "[docs] "
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping make the docs better. Please fill out the fields below so we can fix it quickly.
+
+        **Before submitting**, please confirm:
+        - This is about the documentation, not a bug in the dashboard or contracts
+        - You've checked the [FAQ](../../faq/index.md) and [Troubleshooting](../../faq/troubleshooting.md)
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of issue is this?
+      options:
+        - Typo or grammar
+        - Unclear or confusing wording
+        - Factually wrong / disagrees with on-chain behavior
+        - Missing information
+        - Broken internal link
+        - Out of date (no longer matches current state)
+        - Other
+    validations:
+      required: true
+
+  - type: input
+    id: file
+    attributes:
+      label: Which file?
+      description: "Path to the affected doc, e.g. `mechanics/roar.md`"
+      placeholder: "mechanics/roar.md"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's wrong?
+      description: Quote the relevant section if possible. Explain what's incorrect, unclear, or missing.
+      placeholder: |
+        The "Roar payout" table in mechanics/roar.md shows X, but the contract on Etherscan returns Y when I call quotePayout()...
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested fix (optional)
+      description: If you have an idea for the corrected wording or content, share it here. Bonus points for a PR.
+      placeholder: |
+        Suggested wording: "..."
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: I'm reporting a documentation issue, not a security vulnerability
+          required: true
+        - label: I've searched existing issues and this isn't a duplicate
+          required: true

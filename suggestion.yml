@@ -1,0 +1,77 @@
+name: 💡 Suggestion / discussion
+description: Propose an addition or improvement to the docs, dashboard, or project.
+title: "[suggestion] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Got an idea for the docs, the dashboard, or a post-launch feature? Lay it out here.
+
+        Heads up: **contract behavior is fixed at launch and cannot change.** Suggestions like "lower the mint price" or "add a tax for stakers" are not actionable — those traits are immutable by design. See [trust-signals.md](../../contracts/trust-signals.md).
+
+        Suggestions for **docs, dashboard UX, tooling, and post-launch features** (Layer 2, staking, etc.) are very welcome.
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: What area is this about?
+      options:
+        - Documentation (new doc, restructure, diagram)
+        - Dashboard UX
+        - Developer tooling / SDKs / analytics
+        - Post-launch feature (L2, staking, integrations)
+        - Community / governance
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the gap or pain point first, before jumping to the solution.
+      placeholder: |
+        Currently there's no easy way to see the historical Roar rate over time.
+        Holders have to query Etherscan directly, which is awkward for non-technical users.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: Your idea for solving it. Diagrams, mockups, or examples welcome.
+      placeholder: |
+        Add a "Stats" page on the dashboard showing:
+        - Total bears Roared over time (line chart)
+        - $HOOK minted per day
+        - Average rarity Roared
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives you considered
+      description: Other ways to address the problem, and why your proposal is better.
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Estimated scope
+      options:
+        - Small (a paragraph, a chart, a doc tweak)
+        - Medium (a new page, a new dashboard view)
+        - Large (new contract, major redesign)
+        - I'm not sure
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: Confirmations
+      options:
+        - label: This suggestion does NOT require changing already-deployed contract behavior
+          required: true
+        - label: I've searched existing issues and this isn't a duplicate
+          required: true

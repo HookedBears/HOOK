@@ -1,0 +1,29 @@
+# typos.toml — spell-check config for the Hooked Bears docs.
+# https://github.com/crate-ci/typos
+
+[default]
+extend-ignore-identifiers-re = [
+    # Hex addresses, transaction hashes, IPFS CIDs
+    "^0x[0-9a-fA-F]+$",
+    "^Qm[1-9A-HJ-NP-Za-km-z]{44}$",
+    "^bafy[0-9a-zA-Z]+$",
+]
+
+[default.extend-words]
+# Project-specific terms typos doesn't know
+HOOK = "HOOK"
+roared = "roared"
+roar = "roar"
+roaring = "roaring"
+packer = "packer"
+packers = "packers"
+hodl = "hodl"
+
+[files]
+extend-exclude = [
+    "*.svg",
+    "*.lock",
+    "package-lock.json",
+    "yarn.lock",
+    "node_modules/**",
+]
